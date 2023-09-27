@@ -1,15 +1,28 @@
-﻿// Программа, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа:
+﻿// Программа, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет:
 int Prompt(string msg)
 {
 
 System.Console.WriteLine("msg");
 return Convert.ToInt32(Console.ReadLine());
 }
-int number = Prompt ("Введите трехзначное число");
-if (number >=100 && number <1000)
+int number = Prompt("Введите число");
+
 {
-int mid = (number % 100 - number % 10) / 10;
-System.Console.WriteLine("Вторая цифра числа {0} является {1}", number, mid);
+while (number > 999)
+{
+number /= 10;
 }
+return number % 10;
+}
+
+bool check(int number)
+{
+if (number < 100)
+return false;
+else return true;
+}
+
+if (check(number) != true)
+System.Console.WriteLine("Третьей цифры нет");
 else
-System.Console.WriteLine("Это число не трехзначное");
+System.Console.WriteLine("Третья цифра числа {number} является {fnumber(number)}");
