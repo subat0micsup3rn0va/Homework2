@@ -1,28 +1,16 @@
-﻿// Программа, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет:
-int Prompt(string msg)
+﻿ //Программа, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным:
+ int Prompt(string msg)
 {
 
 System.Console.WriteLine("msg");
 return Convert.ToInt32(Console.ReadLine());
 }
 int number = Prompt("Введите число");
-
+string ss = "Не день недели";
+string check(int number)
 {
-while (number > 999)
-{
-number /= 10;
+if (number >= 6 && number < 8) ss = "Выходной";
+if (number >= 1 && number < 7) ss = "Будний день";
+return ss;
 }
-return number % 10;
-}
-
-bool check(int number)
-{
-if (number < 100)
-return false;
-else return true;
-}
-
-if (check(number) != true)
-System.Console.WriteLine("Третьей цифры нет");
-else
-System.Console.WriteLine("Третья цифра числа {number} является {fnumber(number)}");
+System.Console.WriteLine(check(number));
